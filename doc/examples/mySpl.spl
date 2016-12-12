@@ -1,0 +1,3 @@
+let x = (ref (1::2::nil))
+in (hd !x)
+end
