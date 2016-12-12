@@ -40,6 +40,10 @@ public class Env {
         }
     }
 
+    public Value get(){
+        return v;
+    }
+
     public Env clone() {
         // TODO
         return null;

@@ -6,8 +6,11 @@ public class RefValue extends Value {
 
     public final int p;
 
+    public final boolean mark;
+
     public RefValue(int p) {
         this.p = p;
+        this.mark = false;
     }
 
     public String toString() {
