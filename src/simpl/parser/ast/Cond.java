@@ -4,11 +4,7 @@ import simpl.interpreter.BoolValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;
-import simpl.typing.Substitution;
-import simpl.typing.Type;
-import simpl.typing.TypeEnv;
-import simpl.typing.TypeError;
-import simpl.typing.TypeResult;
+import simpl.typing.*;
 
 public class Cond extends Expr {
 
@@ -30,8 +26,9 @@ public class Cond extends Expr {
         TypeResult e1Result = e1.typecheck(E);
         TypeResult e2Result = e2.typecheck(e1Result.s.compose(E));
         TypeResult e3Result = e3.typecheck(e2Result.s.compose(e1Result.s.compose(E)));
-        Substitution S = e1Result.s.compose(e2Result.s.compose(e3Result.s.compose(e1Result.t.unify(Type.BOOL).compose(e2Result.t.unify(e3Result.t)))));
-        return TypeResult.of(S,S.apply(e2Result.t));
+        TypeVar a = new TypeVar(true);
+        Substitution S = e1Result.s.compose(e2Result.s.compose(e3Result.s.compose(e1Result.t.unify(Type.BOOL).compose(a.unify(e3Result.t).compose(a.unify(e2Result.t))))));
+        return TypeResult.of(S,S.apply(a));
     }
 
     @Override
