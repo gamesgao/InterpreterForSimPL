@@ -45,6 +45,6 @@ public class App extends BinaryExpr {
         if(v1 instanceof tl){
             return ((ConsValue) v2).v2;
         }
-        return v1.e.eval(State.of(new Env(v1.E, v1.x, v2), s.M,s.p));
+        return v1.e.eval(State.of(new Env(v1.E, v1.x, v2), s.M,s.p,s.R));
     }
 }

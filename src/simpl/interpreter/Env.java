@@ -22,6 +22,10 @@ public class Env {
         public Env clone() {
             return this;
         }
+
+        public void mark(Mem M){
+            return;
+        }
     };
 
     public Env(Env E, Symbol x, Value v) {
@@ -40,8 +44,10 @@ public class Env {
         }
     }
 
-    public Value get(){
-        return v;
+    public void mark(Mem M){
+        //TODO
+        v.mark(M);
+        E.mark(M);
     }
 
     public Env clone() {

@@ -1,9 +1,6 @@
 package simpl.interpreter.pcf;
 
-import simpl.interpreter.Env;
-import simpl.interpreter.Mem;
-import simpl.interpreter.RefValue;
-import simpl.interpreter.Value;
+import simpl.interpreter.*;
 
 /**
  * Created by games on 2016/12/12.
@@ -11,28 +8,36 @@ import simpl.interpreter.Value;
 public class GarbageCollection {
     private Mem M;
     private Env E;
+    private RefC R;
 
 
     public void markAll(){
         //TODO
-        Env nowE = E;
-        Value v = E.get();
-        if(v instanceof RefValue){
-
-        }
-
+        E.mark(M);
     }
 
-    public void sweep(){
+    public void sweep() throws InterruptedException {
         //TODO
+        RefValue r = R.dequeue();
+        while(!(r instanceof RefHead)){
+            if(r.mark){
+                r.mark = false;
+                R.enqueue(r);
+            }
+            else{
+                M.remove(r.p);
+            }
+        }
     }
 
-    public GarbageCollection(Mem m, Env e){
+    public GarbageCollection(Mem m, Env e, RefC R){
         this.E = e;
         this.M = m;
+        this.R = R;
+        this.R.enqueue(new RefHead());
     }
 
-    public void run(){
+    public void run() throws InterruptedException {
         this.markAll();
         this.sweep();
     }

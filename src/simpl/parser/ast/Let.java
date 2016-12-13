@@ -38,6 +38,6 @@ public class Let extends Expr {
     public Value eval(State s) throws RuntimeError {
         // TODO
         Value v1 = e1.eval(s);
-        return e2.eval(State.of(new Env(s.E,x,v1),s.M,s.p));
+        return e2.eval(State.of(new Env(s.E,x,v1),s.M,s.p,s.R));
     }
 }

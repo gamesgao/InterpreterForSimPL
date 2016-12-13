@@ -35,7 +35,7 @@ public class Name extends Expr {
         Value v = s.E.get(x);
         if(v instanceof RecValue){
             Rec e = new Rec(((RecValue) v).x,((RecValue) v).e);
-            return e.eval(State.of(((RecValue) v).E,s.M,s.p));
+            return e.eval(State.of(((RecValue) v).E,s.M,s.p,s.R));
         }
         else{
             return v;

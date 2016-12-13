@@ -26,8 +26,10 @@ public class Ref extends UnaryExpr {
         // TODO
         int p = s.p.get();
         s.p.set(p+1);
-        Value v = e.eval(State.of(s.E, s.M, s.p));
+        RefValue r = new RefValue(p);
+        Value v = e.eval(State.of(s.E, s.M, s.p,s.R));
         s.M.put(p,v);
-        return new RefValue(p);
+        s.R.enqueue(r);
+        return r;
     }
 }

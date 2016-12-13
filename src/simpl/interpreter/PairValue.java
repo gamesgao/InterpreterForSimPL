@@ -21,4 +21,10 @@ public class PairValue extends Value {
         }
         return false;
     }
+
+    @Override
+    public void mark(Mem M) {
+        v1.mark(M);
+        v2.mark(M);
+    }
 }

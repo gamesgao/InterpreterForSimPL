@@ -6,7 +6,7 @@ public class RefValue extends Value {
 
     public final int p;
 
-    public final boolean mark;
+    public boolean mark;
 
     public RefValue(int p) {
         this.p = p;
@@ -24,5 +24,12 @@ public class RefValue extends Value {
             return p == ((RefValue) other).p;
         }
         return false;
+    }
+
+    @Override
+    public void mark(Mem M) {
+        this.mark = true;
+        //TODO
+        M.get(this.p).mark(M);
     }
 }
