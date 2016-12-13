@@ -1,3 +1,9 @@
-let x = (ref (1::2::nil))
-in (hd !x)
+ref 1;
+ref 2;
+ref 3;
+ref 4;
+ref 5;
+let x = ref 6
+in !x
 end
+

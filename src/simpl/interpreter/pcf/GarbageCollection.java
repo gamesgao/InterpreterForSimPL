@@ -3,7 +3,7 @@ package simpl.interpreter.pcf;
 import simpl.interpreter.*;
 
 /**
- * Created by games on 2016/12/12.
+ *  Created by games on 2016/12/12.
  */
 public class GarbageCollection {
     private Mem M;
@@ -11,22 +11,28 @@ public class GarbageCollection {
     private RefC R;
 
 
-    public void markAll(){
+    private void markAll(){
         //TODO
         E.mark(M);
     }
 
-    public void sweep() throws InterruptedException {
+    private void sweep(){
         //TODO
-        RefValue r = R.dequeue();
-        while(!(r instanceof RefHead)){
-            if(r.mark){
-                r.mark = false;
-                R.enqueue(r);
+        try {
+            RefValue r = R.dequeue();
+            while(!(r instanceof RefHead)){
+                if(r.mark){
+                    r.mark = false;
+                    R.enqueue(r);
+                }
+                else{
+                    M.remove(r.p);
+                }
+                r = R.dequeue();
             }
-            else{
-                M.remove(r.p);
-            }
+        }
+        catch (InterruptedException e) {
+            e.printStackTrace();
         }
     }
 
@@ -37,7 +43,7 @@ public class GarbageCollection {
         this.R.enqueue(new RefHead());
     }
 
-    public void run() throws InterruptedException {
+    public void run(){
         this.markAll();
         this.sweep();
     }
