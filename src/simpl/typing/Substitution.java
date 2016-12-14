@@ -22,6 +22,7 @@ public abstract class Substitution {
         }
 
         public Type apply(Type b) {
+            if(b == null) return null;
             return b.replace(a, t);
         }
     }

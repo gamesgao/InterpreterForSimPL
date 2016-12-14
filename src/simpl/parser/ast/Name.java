@@ -26,19 +26,26 @@ public class Name extends Expr {
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        return TypeResult.of(E.get(x));
+        Type v = E.get(x);
+        if(v == null) throw new TypeError("");
+        else {
+            return TypeResult.of(v);
+        }
     }
 
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        Value v = s.E.get(x);
+        Value v = s.E.get(this.x);
         if(v instanceof RecValue){
             Rec e = new Rec(((RecValue) v).x,((RecValue) v).e);
             return e.eval(State.of(((RecValue) v).E,s.M,s.p,s.R));
         }
-        else{
+        else if(v != null){
             return v;
+        }
+        else {
+            throw new RuntimeError("");
         }
     }
 }
