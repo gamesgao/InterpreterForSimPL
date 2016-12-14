@@ -25,7 +25,7 @@ public class Cond extends Expr {
         // TODO
         TypeResult e1Result = e1.typecheck(E);
         TypeResult e2Result = e2.typecheck(e1Result.s.compose(E));
-        TypeResult e3Result = e3.typecheck(e2Result.s.compose(e1Result.s.compose(E)));
+        TypeResult e3Result = e3.typecheck(e1Result.s.compose(e2Result.s.compose(E)));
         TypeVar a = new TypeVar(true);
         Substitution S = e1Result.s.compose(e2Result.s.compose(e3Result.s.compose(e1Result.t.unify(Type.BOOL).compose(a.unify(e3Result.t).compose(a.unify(e2Result.t))))));
         return TypeResult.of(S,S.apply(a));

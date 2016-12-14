@@ -46,14 +46,14 @@ public class Interpreter {
 //        interpret("doc/examples/gcd2.spl");
 //        interpret("doc/examples/max.spl");
 //        interpret("doc/examples/sum.spl");
-//        interpret("doc/examples/map.spl");
+        interpret("doc/examples/map.spl");
 //        interpret("doc/examples/pcf.sum.spl");
 //        interpret("doc/examples/pcf.even.spl");
 //        interpret("doc/examples/pcf.minus.spl");
 //        interpret("doc/examples/pcf.factorial.spl");
-        interpret("doc/examples/pcf.fibonacci.spl");
+//        interpret("doc/examples/pcf.fibonacci.spl");
 //        interpret("doc/examples/pcf.twice.spl");
 //        interpret("doc/examples/pcf.lists.spl");
-          interpret("doc/examples/mySpl.spl");
+//        interpret("doc/examples/mySpl.spl");
     }
 }
