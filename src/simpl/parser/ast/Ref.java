@@ -19,7 +19,7 @@ public class Ref extends UnaryExpr {
         // TODO
         TypeResult eResult = e.typecheck(E);
         Substitution S = eResult.s;
-        return TypeResult.of(S, S.apply(new RefType(eResult.t)));
+        return TypeResult.of(S, S.apply(new RefType(S.apply(eResult.t))));
     }
 
     @Override

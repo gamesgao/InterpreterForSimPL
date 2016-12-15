@@ -6,11 +6,10 @@ import simpl.interpreter.State;
 import simpl.interpreter.Value;
 import simpl.typing.RefType;
 import simpl.typing.Substitution;
-import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
-import simpl.typing.TypeVar;
+import simpl.typing.AllType;
 
 public class Deref extends UnaryExpr {
 
@@ -26,8 +25,9 @@ public class Deref extends UnaryExpr {
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
         TypeResult eResult = e.typecheck(E);
-        TypeVar t = new TypeVar(true);
-        Substitution S = eResult.s.compose(eResult.t.unify(new RefType(t)));
+        AllType t = new AllType(true);
+        Substitution S = eResult.s;
+        S = S.compose(S.apply(eResult.t).unify(new RefType(t)));
         return TypeResult.of(S,S.apply(t));
     }
 

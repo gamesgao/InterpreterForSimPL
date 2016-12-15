@@ -28,8 +28,9 @@ public class Loop extends Expr {
         // TODO
         TypeResult e1Result = e1.typecheck(E);
         TypeResult e2Result = e2.typecheck(e1Result.s.compose(E));
-
-        return TypeResult.of(e1Result.s.compose(e2Result.s.compose(e1Result.t.unify(Type.BOOL))), Type.UNIT);
+        Substitution S = e1Result.s.compose(e2Result.s);
+        S = S.compose(S.apply(e1Result.t).unify(Type.BOOL));
+        return TypeResult.of(S, Type.UNIT);
     }
 
     @Override

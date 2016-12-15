@@ -2,16 +2,16 @@ package simpl.typing;
 
 import simpl.parser.Symbol;
 
-public class TypeVar extends Type {
+public class AllType extends Type {
 
-    private static int tvcnt = 0;
+//    private static int tvcnt = 0;
 
     private boolean equalityType;
-    private Symbol name;
+//    private Symbol name;
 
-    public TypeVar(boolean equalityType) {
+    public AllType(boolean equalityType) {
         this.equalityType = equalityType;
-        name = Symbol.symbol("tv" + ++tvcnt);
+//        name = Symbol.symbol("tv" + ++tvcnt);
     }
 
     @Override
@@ -24,7 +24,7 @@ public class TypeVar extends Type {
         // TODO
         if(t.contains(this)) throw new TypeCircularityError();
         else{
-            if(t instanceof TypeVar){
+            if(t instanceof AllType){
                 return Substitution.of(this, t);
             }
             else{
@@ -34,18 +34,18 @@ public class TypeVar extends Type {
     }
 
     public String toString() {
-        return "" + name;
+        return "All";
     }
 
     @Override
-    public boolean contains(TypeVar tv) {
+    public boolean contains(AllType tv) {
         // TODO
         if(tv.equals(this)) return true;
         return false;
     }
 
     @Override
-    public Type replace(TypeVar a, Type t) {
+    public Type replace(AllType a, Type t) {
         // TODO
         if(this.contains(a)) return t;
         return this;

@@ -18,7 +18,7 @@ public final class ArrowType extends Type {
     @Override
     public Substitution unify(Type t) throws TypeError {
         // TODO
-        if(t instanceof TypeVar){
+        if(t instanceof AllType){
             return t.unify(this);
         }
         if(t instanceof ArrowType){
@@ -28,14 +28,14 @@ public final class ArrowType extends Type {
     }
 
     @Override
-    public boolean contains(TypeVar tv) {
+    public boolean contains(AllType tv) {
         // TODO
 
         return t1.contains(tv) || t2.contains(tv) ;
     }
 
     @Override
-    public Type replace(TypeVar a, Type t) {
+    public Type replace(AllType a, Type t) {
         // TODO
         if(t1.contains(a)){
             t1 =  t1.replace(a, t);

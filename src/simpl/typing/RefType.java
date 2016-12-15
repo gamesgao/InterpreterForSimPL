@@ -17,7 +17,7 @@ public final class RefType extends Type {
     @Override
     public Substitution unify(Type t) throws TypeError {
         // TODO
-        if(t instanceof TypeVar){
+        if(t instanceof AllType){
             return t.unify(this);
         }
         if(t instanceof RefType){
@@ -27,13 +27,13 @@ public final class RefType extends Type {
     }
 
     @Override
-    public boolean contains(TypeVar tv) {
+    public boolean contains(AllType tv) {
         // TODO
         return t.contains(tv);
     }
 
     @Override
-    public Type replace(TypeVar a, Type t) {
+    public Type replace(AllType a, Type t) {
         // TODO
         if(this.t.contains(a)){
             this.t=this.t.replace(a, t);

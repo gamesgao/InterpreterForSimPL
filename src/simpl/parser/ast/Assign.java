@@ -26,7 +26,9 @@ public class Assign extends BinaryExpr {
         // TODO
         TypeResult lResult = l.typecheck(E);
         TypeResult rResult = r.typecheck(lResult.s.compose(E));
-        return TypeResult.of(lResult.s.compose(rResult.s.compose(lResult.t.unify(new RefType(rResult.t)))), Type.UNIT);
+        Substitution S = lResult.s.compose(rResult.s);
+        S = S.compose(S.apply(lResult.t).unify(new RefType(S.apply(rResult.t))));
+        return TypeResult.of(S, Type.UNIT);
     }
 
     @Override

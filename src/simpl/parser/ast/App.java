@@ -5,7 +5,6 @@ import simpl.interpreter.lib.fst;
 import simpl.interpreter.lib.hd;
 import simpl.interpreter.lib.snd;
 import simpl.interpreter.lib.tl;
-import simpl.parser.Symbol;
 import simpl.typing.*;
 
 public class App extends BinaryExpr {
@@ -23,8 +22,9 @@ public class App extends BinaryExpr {
         // TODO
         TypeResult lResult = l.typecheck(E);
         TypeResult rResult = r.typecheck(lResult.s.compose(E));
-        TypeVar a = new TypeVar(true);
-        Substitution S = lResult.s.compose(rResult.s.compose(lResult.t.unify(new ArrowType(rResult.t,a))));
+        AllType a = new AllType(true);
+        Substitution S = lResult.s.compose(rResult.s);
+        S = S.compose(S.apply(lResult.t).unify(new ArrowType(S.apply(rResult.t), a)));
         return TypeResult.of(S,S.apply(a));
     }
 

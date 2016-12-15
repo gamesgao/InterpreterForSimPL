@@ -1,6 +1,5 @@
 package simpl.parser.ast;
 
-import simpl.interpreter.BoolValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;
@@ -26,8 +25,11 @@ public class Cond extends Expr {
         TypeResult e1Result = e1.typecheck(E);
         TypeResult e2Result = e2.typecheck(e1Result.s.compose(E));
         TypeResult e3Result = e3.typecheck(e1Result.s.compose(e2Result.s.compose(E)));
-        TypeVar a = new TypeVar(true);
-        Substitution S = e1Result.s.compose(e2Result.s.compose(e3Result.s.compose(e1Result.t.unify(Type.BOOL).compose(a.unify(e3Result.t).compose(a.unify(e2Result.t))))));
+        AllType a = new AllType(true);
+        Substitution S = e1Result.s.compose(e2Result.s.compose(e3Result.s));
+        S = S.compose(S.apply(e1Result.t).unify(Type.BOOL));
+        S = S.compose(S.apply(e2Result.t).unify(a));
+        S = S.compose(S.apply(e3Result.t).unify(a));
         return TypeResult.of(S,S.apply(a));
     }
 

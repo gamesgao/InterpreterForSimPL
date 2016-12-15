@@ -7,11 +7,10 @@ import simpl.interpreter.State;
 import simpl.interpreter.Value;
 import simpl.parser.Symbol;
 import simpl.typing.Substitution;
-import simpl.typing.Type;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
-import simpl.typing.TypeVar;
+import simpl.typing.AllType;
 
 public class Rec extends Expr {
 
@@ -30,9 +29,10 @@ public class Rec extends Expr {
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        TypeVar t = new TypeVar(true);
+        AllType t = new AllType(true);
         TypeResult eResult = e.typecheck(TypeEnv.of(E, x, t));
-        Substitution S = eResult.s.compose(eResult.t.unify(t));
+        Substitution S = eResult.s;
+        S = S.compose(S.apply(eResult.t).unify(t));
         return TypeResult.of(S, S.apply(t));
     }
 

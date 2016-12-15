@@ -9,13 +9,13 @@ public class DefaultTypeEnv extends TypeEnv {
     public DefaultTypeEnv() {
         // TODO
         E = TypeEnv.empty;
-        TypeVar fstPair = new TypeVar(true);
-        TypeVar sndPair = new TypeVar(true);
-        TypeVar hdPair = new TypeVar(true);
-        TypeVar tlPair = new TypeVar(true);
+        AllType fstPair = new AllType(true);
+        AllType sndPair = new AllType(true);
+        AllType hdPair = new AllType(true);
+        AllType tlPair = new AllType(true);
 
-        E = TypeEnv.of(E,Symbol.symbol("fst"), new ArrowType(new PairType(fstPair, new TypeVar(true)), fstPair));
-        E = TypeEnv.of(E,Symbol.symbol("snd"), new ArrowType(new PairType(new TypeVar(true), sndPair), sndPair));
+        E = TypeEnv.of(E,Symbol.symbol("fst"), new ArrowType(new PairType(fstPair, new AllType(true)), fstPair));
+        E = TypeEnv.of(E,Symbol.symbol("snd"), new ArrowType(new PairType(new AllType(true), sndPair), sndPair));
         E = TypeEnv.of(E,Symbol.symbol("hd"), new ArrowType(new ListType(hdPair), hdPair));
         E = TypeEnv.of(E, Symbol.symbol("tl"), new ArrowType(new ListType(tlPair), new ListType(tlPair)));
         E = TypeEnv.of(E, Symbol.symbol("iszero"), new ArrowType(Type.INT, Type.BOOL));

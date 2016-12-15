@@ -17,6 +17,9 @@ public abstract class ArithExpr extends BinaryExpr {
         // TODO
         TypeResult lResult = l.typecheck(E);
         TypeResult rResult = r.typecheck(lResult.s.compose(E));
-        return TypeResult.of(lResult.s.compose(rResult.s.compose(lResult.t.unify(Type.INT).compose(rResult.t.unify(Type.INT)))), Type.INT);
+        Substitution S = lResult.s.compose(rResult.s);
+        S = S.compose(S.apply(lResult.t).unify(Type.INT));
+        S = S.compose(S.apply(rResult.t).unify(Type.INT));
+        return TypeResult.of(S, Type.INT);
     }
 }

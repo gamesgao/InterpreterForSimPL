@@ -14,8 +14,7 @@ public class Nil extends Expr {
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        TypeVar alpha = new TypeVar(true);
-
+        AllType alpha = new AllType(true);
         return TypeResult.of(new ListType(alpha));
     }
 

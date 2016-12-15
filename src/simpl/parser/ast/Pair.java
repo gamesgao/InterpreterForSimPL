@@ -22,7 +22,7 @@ public class Pair extends BinaryExpr {
         TypeResult lResult = l.typecheck(E);
         TypeResult rResult = r.typecheck(lResult.s.compose(E));
         Substitution S = lResult.s.compose(rResult.s);
-        return TypeResult.of(S, S.apply(new PairType(lResult.t, rResult.t)));
+        return TypeResult.of(S, S.apply(new PairType(S.apply(lResult.t), S.apply(rResult.t))));
     }
 
     @Override

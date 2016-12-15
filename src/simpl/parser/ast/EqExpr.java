@@ -13,8 +13,11 @@ public abstract class EqExpr extends BinaryExpr {
         // TODO
         TypeResult lResult = l.typecheck(E);
         TypeResult rResult = r.typecheck(lResult.s.compose(E));
-        if(lResult.t.isEqualityType() && rResult.t.isEqualityType()){
-            return TypeResult.of(lResult.s.compose(rResult.s.compose(lResult.t.unify(rResult.t))), Type.BOOL);
+        Substitution S = lResult.s.compose(rResult.s);
+        Type lt = S.apply(lResult.t);
+        Type rt = S.apply(rResult.t);
+        if(lt.isEqualityType() && rt.isEqualityType()){
+            return TypeResult.of(S.compose(lt.unify(rt)), Type.BOOL);
         }
         throw new TypeMismatchError();
     }
