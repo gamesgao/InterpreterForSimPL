@@ -10,7 +10,7 @@ import simpl.typing.Substitution;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
-import simpl.typing.AllType;
+import simpl.typing.TypeVar;
 
 public class Rec extends Expr {
 
@@ -29,7 +29,7 @@ public class Rec extends Expr {
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        AllType t = new AllType(true);
+        TypeVar t = new TypeVar(true);
         TypeResult eResult = e.typecheck(TypeEnv.of(E, x, t));
         Substitution S = eResult.s;
         S = S.compose(S.apply(eResult.t).unify(t));
@@ -39,6 +39,6 @@ public class Rec extends Expr {
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        return e.eval(State.of(new Env(s.E,x,new RecValue(s.E,x,e)),s.M,s.p,s.R));
+        return e.eval(State.of(new Env(s.E,x,new RecValue(s.E,x,e)),s.M,s.p));
     }
 }

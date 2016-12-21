@@ -13,10 +13,10 @@ public abstract class Substitution {
     }
 
     private static final class Replace extends Substitution {
-        private AllType a;
+        private TypeVar a;
         private Type t;
 
-        public Replace(AllType a, Type t) {
+        public Replace(TypeVar a, Type t) {
             this.a = a;
             this.t = t;
         }
@@ -42,7 +42,7 @@ public abstract class Substitution {
 
     public static final Substitution IDENTITY = new Identity();
 
-    public static Substitution of(AllType a, Type t) {
+    public static Substitution of(TypeVar a, Type t) {
         return new Replace(a, t);
     }
 

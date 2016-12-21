@@ -4,9 +4,9 @@ public abstract class Type {
 
     public abstract boolean isEqualityType();
 
-    public abstract Type replace(AllType a, Type t);
+    public abstract Type replace(TypeVar a, Type t);
 
-    public abstract boolean contains(AllType tv);
+    public abstract boolean contains(TypeVar tv);
 
     public abstract Substitution unify(Type t) throws TypeError;
 

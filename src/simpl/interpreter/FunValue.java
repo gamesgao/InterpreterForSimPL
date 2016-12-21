@@ -24,9 +24,4 @@ public class FunValue extends Value {
         // TODO
         return false;
     }
-
-    @Override
-    public void mark(Mem M) {
-        return;
-    }
 }

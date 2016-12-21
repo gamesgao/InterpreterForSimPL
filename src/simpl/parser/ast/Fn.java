@@ -24,7 +24,7 @@ public class Fn extends Expr {
     @Override
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
-        AllType t = new AllType(true);
+        TypeVar t = new TypeVar(true);
         TypeResult eResult = e.typecheck(TypeEnv.of(E,x,t));
         Substitution S = eResult.s;
         return TypeResult.of(S, S.apply(new ArrowType(t, S.apply(eResult.t))));

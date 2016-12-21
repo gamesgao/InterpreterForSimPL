@@ -12,7 +12,7 @@ final class UnitType extends Type {
 
     @Override
     public Substitution unify(Type t) throws TypeError {
-        if (t instanceof AllType) {
+        if (t instanceof TypeVar) {
             return t.unify(this);
         }
         if (t instanceof UnitType) {
@@ -22,12 +22,12 @@ final class UnitType extends Type {
     }
 
     @Override
-    public boolean contains(AllType tv) {
+    public boolean contains(TypeVar tv) {
         return false;
     }
 
     @Override
-    public Type replace(AllType a, Type t) {
+    public Type replace(TypeVar a, Type t) {
         return Type.UNIT;
     }
 

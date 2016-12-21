@@ -18,7 +18,7 @@ public final class PairType extends Type {
     @Override
     public Substitution unify(Type t) throws TypeError {
         // TODO
-        if(t instanceof AllType){
+        if(t instanceof TypeVar){
             return t.unify(this);
         }
         if(t instanceof PairType){
@@ -28,13 +28,13 @@ public final class PairType extends Type {
     }
 
     @Override
-    public boolean contains(AllType tv) {
+    public boolean contains(TypeVar tv) {
         // TODO
         return t1.contains(tv)||t2.contains(tv);
     }
 
     @Override
-    public Type replace(AllType a, Type t) {
+    public Type replace(TypeVar a, Type t) {
         // TODO
         if(t1.contains(a)){
             t1 = t1.replace(a, t);

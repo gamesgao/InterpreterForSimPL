@@ -20,9 +20,4 @@ public class RecValue extends Value {
         // TODO
         return false;
     }
-
-    @Override
-    public void mark(Mem M) {
-        return;
-    }
 }

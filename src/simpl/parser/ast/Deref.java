@@ -9,7 +9,7 @@ import simpl.typing.Substitution;
 import simpl.typing.TypeEnv;
 import simpl.typing.TypeError;
 import simpl.typing.TypeResult;
-import simpl.typing.AllType;
+import simpl.typing.TypeVar;
 
 public class Deref extends UnaryExpr {
 
@@ -25,7 +25,7 @@ public class Deref extends UnaryExpr {
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
         TypeResult eResult = e.typecheck(E);
-        AllType t = new AllType(true);
+        TypeVar t = new TypeVar(true);
         Substitution S = eResult.s;
         S = S.compose(S.apply(eResult.t).unify(new RefType(t)));
         return TypeResult.of(S,S.apply(t));

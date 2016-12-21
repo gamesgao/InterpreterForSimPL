@@ -17,9 +17,4 @@ public class IntValue extends Value {
         // TODO
         return other.equals(n);
     }
-
-    @Override
-    public void mark(Mem M) {
-        return;
-    }
 }

@@ -14,7 +14,7 @@ final class IntType extends Type {
     @Override
     public Substitution unify(Type t) throws TypeError {
         // TODO
-        if (t instanceof AllType) {
+        if (t instanceof TypeVar) {
             return t.unify(this);
         }
         if (t instanceof IntType) {
@@ -24,13 +24,13 @@ final class IntType extends Type {
     }
 
     @Override
-    public boolean contains(AllType tv) {
+    public boolean contains(TypeVar tv) {
         // TODO
         return false;
     }
 
     @Override
-    public Type replace(AllType a, Type t) {
+    public Type replace(TypeVar a, Type t) {
         // TODO
         return Type.INT;
     }

@@ -18,9 +18,4 @@ public class BoolValue extends Value {
         if(other.equals(true) || other.equals(false)) return other.equals(b);
         return false;
     }
-
-    @Override
-    public void mark(Mem M) {
-        return;
-    }
 }

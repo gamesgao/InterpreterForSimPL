@@ -14,9 +14,4 @@ class NilValue extends Value {
         // TODO
         return other instanceof NilValue;
     }
-
-    @Override
-    public void mark(Mem M) {
-        return;
-    }
 }

@@ -25,11 +25,4 @@ public class RefValue extends Value {
         }
         return false;
     }
-
-    @Override
-    public void mark(Mem M) {
-        this.mark = true;
-        //TODO
-        M.get(this.p).mark(M);
-    }
 }

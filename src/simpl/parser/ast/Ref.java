@@ -1,7 +1,6 @@
 package simpl.parser.ast;
 
 import simpl.interpreter.*;
-import simpl.interpreter.pcf.GarbageCollection;
 import simpl.typing.*;
 
 public class Ref extends UnaryExpr {
@@ -28,13 +27,8 @@ public class Ref extends UnaryExpr {
         int p = s.p.get();
         s.p.set(p+1);
         RefValue r = new RefValue(p);
-        Value v = e.eval(State.of(s.E, s.M, s.p,s.R));
-        if(s.M.overFlow()){
-            (new GarbageCollection(s.M, s.E, s.R)).run();
-//            System.out.println(s.M.size());
-        }
+        Value v = e.eval(State.of(s.E, s.M, s.p));
         s.M.put(p,v);
-        s.R.enqueue(r);
         return r;
     }
 }

@@ -22,7 +22,7 @@ public class App extends BinaryExpr {
         // TODO
         TypeResult lResult = l.typecheck(E);
         TypeResult rResult = r.typecheck(lResult.s.compose(E));
-        AllType a = new AllType(true);
+        TypeVar a = new TypeVar(true);
         Substitution S = lResult.s.compose(rResult.s);
         S = S.compose(S.apply(lResult.t).unify(new ArrowType(S.apply(rResult.t), a)));
         return TypeResult.of(S,S.apply(a));
@@ -45,6 +45,6 @@ public class App extends BinaryExpr {
         if(v1 instanceof tl){
             return ((ConsValue) v2).v2;
         }
-        return v1.e.eval(State.of(new Env(v1.E, v1.x, v2), s.M,s.p,s.R));
+        return v1.e.eval(State.of(new Env(v1.E, v1.x, v2), s.M,s.p));
     }
 }

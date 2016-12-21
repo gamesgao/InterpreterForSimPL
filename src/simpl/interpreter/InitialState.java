@@ -12,7 +12,7 @@ import simpl.parser.Symbol;
 public class InitialState extends State {
 
     public InitialState() {
-        super(initialEnv(Env.empty), new Mem(), new Int(0), new RefC());
+        super(initialEnv(Env.empty), new Mem(), new Int(0));
     }
 
     private static Env initialEnv(Env E) {
