@@ -5,16 +5,18 @@ import simpl.typing.RefType;
 public class RefValue extends Value {
 
     public final int p;
+    public final Value v;
 
     public boolean mark;
 
-    public RefValue(int p) {
+    public RefValue(int p, Value v) {
         this.p = p;
+        this.v = v;
         this.mark = false;
     }
 
     public String toString() {
-        return "ref@" + p;
+        return "ref@" + this.v;
     }
 
     @Override
