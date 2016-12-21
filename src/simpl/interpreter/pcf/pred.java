@@ -19,6 +19,6 @@ public class pred extends FunValue {
 
     public pred() {
         // TODO
-        super(Env.empty, Symbol.symbol("x"), new Add(new Name(Symbol.symbol("x")), new IntegerLiteral(-1)));
+        super(Env.empty, Symbol.symbol("predParameter"), new Add(new Name(Symbol.symbol("predParameter")), new IntegerLiteral(-1)));
     }
 }

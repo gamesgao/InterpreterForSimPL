@@ -42,6 +42,6 @@ public class Env {
 
     public Env clone() {
         // TODO
-        return null;
+        return new Env(E,x,v);
     }
 }

@@ -17,6 +17,6 @@ public class iszero extends FunValue {
 
     public iszero() {
         // TODO
-        super(Env.empty, Symbol.symbol("x"), new Eq(new Name(Symbol.symbol("x")), new IntegerLiteral(0)));
+        super(Env.empty, Symbol.symbol("iszeroParameter"), new Eq(new Name(Symbol.symbol("iszeroParameter")), new IntegerLiteral(0)));
     }
 }
