@@ -1,6 +1,9 @@
 package simpl.parser.ast;
 
-import simpl.interpreter.*;
+import simpl.interpreter.RefValue;
+import simpl.interpreter.RuntimeError;
+import simpl.interpreter.State;
+import simpl.interpreter.Value;
 import simpl.typing.*;
 
 public class Ref extends UnaryExpr {

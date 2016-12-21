@@ -4,12 +4,7 @@ import simpl.interpreter.RefValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;
-import simpl.typing.RefType;
-import simpl.typing.Substitution;
-import simpl.typing.TypeEnv;
-import simpl.typing.TypeError;
-import simpl.typing.TypeResult;
-import simpl.typing.TypeVar;
+import simpl.typing.*;
 
 public class Deref extends UnaryExpr {
 

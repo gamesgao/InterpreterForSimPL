@@ -1,7 +1,5 @@
 package simpl.interpreter;
 
-import simpl.parser.ast.Cons;
-
 public class ConsValue extends Value {
 
     public final Value v1, v2;

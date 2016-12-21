@@ -5,8 +5,9 @@
 
 package simpl.parser;
 
-import java.io.InputStream;
 import simpl.parser.ast.*;
+
+import java.io.InputStream;
 
 /**
  * CUP v0.11a beta 20060608 generated parser.

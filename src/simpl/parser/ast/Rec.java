@@ -1,16 +1,8 @@
 package simpl.parser.ast;
 
-import simpl.interpreter.Env;
-import simpl.interpreter.RecValue;
-import simpl.interpreter.RuntimeError;
-import simpl.interpreter.State;
-import simpl.interpreter.Value;
+import simpl.interpreter.*;
 import simpl.parser.Symbol;
-import simpl.typing.Substitution;
-import simpl.typing.TypeEnv;
-import simpl.typing.TypeError;
-import simpl.typing.TypeResult;
-import simpl.typing.TypeVar;
+import simpl.typing.*;
 
 public class Rec extends Expr {
 

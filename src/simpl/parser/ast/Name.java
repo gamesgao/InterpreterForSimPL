@@ -1,6 +1,5 @@
 package simpl.parser.ast;
 
-import com.sun.org.apache.regexp.internal.RE;
 import simpl.interpreter.RecValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;

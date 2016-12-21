@@ -1,9 +1,9 @@
 package simpl.interpreter;
 
-import simpl.interpreter.lib.hd;
-import simpl.interpreter.lib.tl;
 import simpl.interpreter.lib.fst;
+import simpl.interpreter.lib.hd;
 import simpl.interpreter.lib.snd;
+import simpl.interpreter.lib.tl;
 import simpl.interpreter.pcf.iszero;
 import simpl.interpreter.pcf.pred;
 import simpl.interpreter.pcf.succ;

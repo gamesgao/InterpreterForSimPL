@@ -4,11 +4,7 @@ import simpl.interpreter.ConsValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;
-import simpl.typing.ListType;
-import simpl.typing.Substitution;
-import simpl.typing.TypeEnv;
-import simpl.typing.TypeError;
-import simpl.typing.TypeResult;
+import simpl.typing.*;
 
 public class Cons extends BinaryExpr {
 

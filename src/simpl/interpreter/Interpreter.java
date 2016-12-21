@@ -1,13 +1,13 @@
 package simpl.interpreter;
 
-import java.io.FileInputStream;
-import java.io.InputStream;
-
 import simpl.parser.Parser;
 import simpl.parser.SyntaxError;
 import simpl.parser.ast.Expr;
 import simpl.typing.DefaultTypeEnv;
 import simpl.typing.TypeError;
+
+import java.io.FileInputStream;
+import java.io.InputStream;
 
 public class Interpreter {
 

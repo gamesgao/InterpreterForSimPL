@@ -1,7 +1,5 @@
 package simpl.interpreter;
 
-import simpl.typing.RefType;
-
 public class RefValue extends Value {
 
     public final int p;
