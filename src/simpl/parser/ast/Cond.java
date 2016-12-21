@@ -1,5 +1,6 @@
 package simpl.parser.ast;
 
+import simpl.interpreter.BoolValue;
 import simpl.interpreter.RuntimeError;
 import simpl.interpreter.State;
 import simpl.interpreter.Value;
@@ -36,7 +37,7 @@ public class Cond extends Expr {
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        if(e1.eval(s).equals(true)){
+        if(e1.eval(s).equals(new BoolValue(true))){
             return e2.eval(s);
         }
         else{

@@ -36,7 +36,7 @@ public class Loop extends Expr {
     @Override
     public Value eval(State s) throws RuntimeError {
         // TODO
-        if(e1.eval(s).equals(true)){
+        if(e1.eval(s).equals(new BoolValue(true))){
             Seq e = new Seq(e2,new Loop(e1,e2));
             return e.eval(s);
         }

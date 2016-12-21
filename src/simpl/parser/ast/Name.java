@@ -27,7 +27,7 @@ public class Name extends Expr {
     public TypeResult typecheck(TypeEnv E) throws TypeError {
         // TODO
         Type v = E.get(x);
-        if(v == null) throw new TypeError("");
+        if(v == null) throw new TypeError("name not found");
         else {
             return TypeResult.of(v);
         }
@@ -45,7 +45,7 @@ public class Name extends Expr {
             return v;
         }
         else {
-            throw new RuntimeError("");
+            throw new RuntimeError("name not found");
         }
     }
 }

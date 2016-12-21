@@ -26,7 +26,7 @@ public class Ref extends UnaryExpr {
         // TODO
         int p = s.p.get();
         s.p.set(p+1);
-        Value v = e.eval(State.of(s.E, s.M, s.p));
+        Value v = e.eval(s);
         RefValue r = new RefValue(p, v);
         s.M.put(p,v);
         return r;

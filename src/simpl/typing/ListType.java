@@ -11,7 +11,7 @@ public final class ListType extends Type {
     @Override
     public boolean isEqualityType() {
         // TODO
-        return true;
+        return this.t.isEqualityType();
     }
 
     @Override
