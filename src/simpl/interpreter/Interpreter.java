@@ -35,7 +35,7 @@ public class Interpreter {
 
     private static void interpret(String filename) {
         Interpreter i = new Interpreter();
-        System.out.println(filename);
+//        System.out.println(filename);
         i.run(filename);
     }
 

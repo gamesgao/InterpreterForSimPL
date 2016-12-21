@@ -40,9 +40,11 @@ public class App extends BinaryExpr {
             return ((PairValue) v2).v2;
         }
         if(v1 instanceof hd){
+            if(v2.equals(Value.NIL)) throw new RuntimeError("read head of nil");
             return ((ConsValue) v2).v1;
         }
         if(v1 instanceof tl){
+            if(v2.equals(Value.NIL)) throw new RuntimeError("read tail of nil");
             return ((ConsValue) v2).v2;
         }
         return v1.e.eval(State.of(new Env(v1.E, v1.x, v2), s.M,s.p));

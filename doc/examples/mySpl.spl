@@ -1,3 +1,1 @@
-let x = ref ref 1999 in
-    ref 12; ref 1777; ref 9999; ref 20000; (ref 99)::(ref 100)::nil
-end
+tl (1::nil)
