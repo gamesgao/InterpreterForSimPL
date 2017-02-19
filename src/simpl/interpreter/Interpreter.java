@@ -44,21 +44,22 @@ public class Interpreter {
             interpret(args[0]);
         }
         else {
-            interpret("doc/examples/plus.spl");
-            interpret("doc/examples/factorial.spl");
-            interpret("doc/examples/gcd1.spl");
-            interpret("doc/examples/gcd2.spl");
-            interpret("doc/examples/max.spl");
-            interpret("doc/examples/sum.spl");
-            interpret("doc/examples/map.spl");
-            interpret("doc/examples/pcf.sum.spl");
-            interpret("doc/examples/pcf.even.spl");
-            interpret("doc/examples/pcf.minus.spl");
-//            interpret("doc/examples/pcf.factorial.spl");
-            interpret("doc/examples/pcf.fibonacci.spl");
-            interpret("doc/examples/pcf.twice.spl");
-            interpret("doc/examples/pcf.lists.spl");
-            interpret("doc/examples/mySpl.spl");
+            System.out.println("there is no parameter in!");
+//            interpret("doc/examples/plus.spl");
+//            interpret("doc/examples/factorial.spl");
+//            interpret("doc/examples/gcd1.spl");
+//            interpret("doc/examples/gcd2.spl");
+//            interpret("doc/examples/max.spl");
+//            interpret("doc/examples/sum.spl");
+//            interpret("doc/examples/map.spl");
+//            interpret("doc/examples/pcf.sum.spl");
+//            interpret("doc/examples/pcf.even.spl");
+//            interpret("doc/examples/pcf.minus.spl");
+////            interpret("doc/examples/pcf.factorial.spl");
+//            interpret("doc/examples/pcf.fibonacci.spl");
+//            interpret("doc/examples/pcf.twice.spl");
+//            interpret("doc/examples/pcf.lists.spl");
+//            interpret("doc/examples/mySpl.spl");
         }
     }
 }
